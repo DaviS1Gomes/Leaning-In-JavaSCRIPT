@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Marcação de Consulta</title>
+</head>
+<body>
+    <h1>Formulário de Marcação de Consulta</h1>
+    <form id="consultaForm" onsubmit="return validarFormulario()">
+        <!-- Seção de Dados Pessoais -->
+        <h2>Dados Pessoais</h2>
+        <label for="nome">Nome Completo:</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf" required>
+
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" name="data_nascimento" id="data_nascimento" required>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" name="endereco" id="endereco" required>
+
+        <label for="uf">UF:</label>
+        <input type="text" name="uf" id="uf" required>
+
+        <label for="cep">CEP:</label>
+        <input type="text" name="cep" id="cep" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" name="telefone" id="telefone" required>
+
+        <!-- Seção de Dados da Consulta -->
+        <h2>Dados da Consulta</h2>
+        <label for="especialidade">Especialidade:</label>
+        <select name="especialidade" id="especialidade" required>
+            <option value="Cardiologia">Cardiologia</option>
+            <option value="Dermatologia">Dermatologia</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+
+        <label for="data_hora">Data e Hora:</label>
+        <input type="datetime-local" name="data_hora" id="data_hora" required>
+
+        <label for="alergia">Medicamentos Alergicos:</label>
+        <select name="alergia" id="alergia" multiple>
+            <option value="Antibióticos">Antibióticos</option>
+            <option value="Anti-inflamatórios">Anti-inflamatórios</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+
+        <label for="informacoes_adicionais">Informações Adicionais:</label>
+        <textarea name="informacoes_adicionais" id="informacoes_adicionais"></textarea>
+
+        <button type="submit">Enviar Consulta</button>
+    </form>
+
+    <script>
+        function validarFormulario() {
+            var camposVazios = [];
+            var campos = document.querySelectorAll('input, select, textarea');
+            
+            for (var i = 0; i < campos.length; i++) {
+                if (campos[i].hasAttribute('required') && !campos[i].value) {
+                    camposVazios.push(campos[i].getAttribute('name'));
+                }
+            }
+
+            if (camposVazios.length > 0) {
+                alert('Campos vazios: ' + camposVazios.join(', '));
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
