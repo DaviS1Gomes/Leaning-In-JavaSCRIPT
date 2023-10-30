@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora</h1>
+        <form action="/calcular" method="POST">
+            <input type="number" name="numA" required>
+            <select name="operacao">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" name="numB" required>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado: <%= resultado %></h1>
+        <a href="/" class="btn btn-primary">Novo cálculo</a>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
